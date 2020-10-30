@@ -38,15 +38,23 @@ const books = [{
 }];
 
 
+const clickHandler = () => {
+  alert('hello world');
+}
+
+
 function BookList() {
+  // atribute, eventHandler
+  // onClick, onMouseOver
+
   return (
-    <section className='booklist'>
+    <article className='booklist'>
       {books.map((book) => {
         return (
           <Book key={book.id} {...book} />
         )
       })}
-    </section>
+    </article>
   );
 }
 
@@ -58,15 +66,33 @@ const Book = ({ img, title, author }) => {
   </article>
 }
 const Image = (props) => {
-  return (<img src={props.img} alt="" />);
+  return (
+    <img src={props.img} alt="" />
+  );
 }
 const Title = (props) => {
-  return (<h1>{props.title}</h1>)
+  return (
+    <div>
+      <h1 onClick={() => console.log(props.title)}> {props.title}</h1 >
+      <button type="button" onClick={clickHandler}>
+        Reference example
+      </button>
+    </div>
+  )
 }
-const Author = (props) => (
-  <h4>
-    {props.author}
-  </h4>)
+const Author = (props) => {
+  const complexExample = (author) => {
+    console.log(author);
+  }
+  return (
+    <div>
+      <h4>{props.author}</h4>
+      < button type="button" onClick={() => complexExample(props.author)} >
+        More complex example
+      </button>
+    </div>
+  )
+}
 
 // Nested Components, React Tools
 
