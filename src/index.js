@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDom from "react-dom";
 
+// css 
+import './index.css'
+
 // stateless functional component
 // always return JSX
 
@@ -12,24 +15,46 @@ import ReactDom from "react-dom";
 // close every element
 // formatting
 
+const author = 'Iain Banks';
+const title = "The wasp factory";
+const image = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1434940562l/567678._SY475_.jpg";
 
-function Greeting() {
+function BookList() {
   return (
-    <div onClick className=''>
-      <Person/>
-      <Message/>
-      <h1>My first component</h1>
-      </div>
+    <section className='booklist'>
+      <Book job='developer'/>
+      <Book title='random title' number={22}/>
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
   );
 }
 
-// Nested Components, React Tools
-const Person = () => <h2>John Doe</h2>
-
-const Message = () => {
-  return <p>This is my message</p>
+const Book = (props) => {
+  console.log(props);
+  return <article className='book'>
+    <Image />
+    <Title />
+    <Author />
+    <p>{props.job}</p>
+    <p>{props.number}</p>
+  </article>
 }
+const Image = () => {
+  return (<img src={image} alt="" />);
+}
+const Title = () => {
+  return (<h1>{title}</h1>)
+}
+const Author = () => (
+  <h4>
+    {author}
+  </h4>)
 
+// Nested Components, React Tools
 
 // The following 2 Greetings are identical
 // function Greeting() {
@@ -43,4 +68,4 @@ const Message = () => {
 
 
 
-ReactDom.render(<Greeting />, document.getElementById("root"));
+ReactDom.render(<BookList />, document.getElementById("root"));
