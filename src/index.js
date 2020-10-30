@@ -15,16 +15,33 @@ import './index.css'
 // close every element
 // formatting
 
-const author = 'Iain Banks';
-const title = "The wasp factory";
-const image = "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1434940562l/567678._SY475_.jpg";
+const firstBook = {
+  author: 'Iain Banks',
+  title: "The wasp factory",
+  img: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1434940562l/567678._SY475_.jpg"
+};
+
+const secondBook = {
+  author: 'Herman Hesse',
+  title: 'Siddhartha',
+  img: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1428715580l/52036.jpg'
+}
+
+const thirdBook = {
+  author: 'Albert Camus',
+  title: 'The Stranger',
+  img: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1590930002l/49552._SY475_.jpg'
+}
+
 
 function BookList() {
   return (
     <section className='booklist'>
-      <Book job='developer'/>
-      <Book title='random title' number={22}/>
-      <Book />
+      <Book img={firstBook.img} title={firstBook.title} author={firstBook.author} />
+      <Book img={secondBook.img} title={secondBook.title} author={secondBook.author} />
+      <Book img={thirdBook.img} title={thirdBook.title} author={thirdBook.author}>
+        <p>Lorem ipsum etc etc </p>
+      </Book>
       <Book />
       <Book />
       <Book />
@@ -33,25 +50,23 @@ function BookList() {
   );
 }
 
-const Book = (props) => {
-  console.log(props);
+const Book = ({ img, title, author, children }) => {
   return <article className='book'>
-    <Image />
-    <Title />
-    <Author />
-    <p>{props.job}</p>
-    <p>{props.number}</p>
+    <Image img={img} />
+    <Title title={title} />
+    <Author author={author} />
+    {children}
   </article>
 }
-const Image = () => {
-  return (<img src={image} alt="" />);
+const Image = (props) => {
+  return (<img src={props.img} alt="" />);
 }
-const Title = () => {
-  return (<h1>{title}</h1>)
+const Title = (props) => {
+  return (<h1>{props.title}</h1>)
 }
-const Author = () => (
+const Author = (props) => (
   <h4>
-    {author}
+    {props.author}
   </h4>)
 
 // Nested Components, React Tools
