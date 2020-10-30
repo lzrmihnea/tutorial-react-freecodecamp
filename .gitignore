@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+tutorial-react-01/build/
+tutorial-react-01/node_modules/
+
+.vscode/
+
+public/
