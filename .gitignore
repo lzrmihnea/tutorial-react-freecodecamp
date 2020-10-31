@@ -22,9 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-tutorial-react-01/build/
-tutorial-react-01/node_modules/
+tutorial-react-01-fundamentals/build/
+tutorial-react-01-fundamentals/node_modules/
 
 .vscode/
 
 public/
+
